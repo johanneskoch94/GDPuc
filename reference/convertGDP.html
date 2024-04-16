@@ -16,7 +16,7 @@ conversion factors (PPPs)."><!-- mathjax --><script src="https://cdnjs.cloudflar
     
     <a class="navbar-brand me-2" href="../index.html">GDPuc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,11 +76,16 @@ conversion factors (PPPs).</p>
 <span>  <span class="va">unit_in</span>,</span>
 <span>  <span class="va">unit_out</span>,</span>
 <span>  source <span class="op">=</span> <span class="st">"wb_wdi"</span>,</span>
+<span>  use_USA_deflator_for_all <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  with_regions <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  replace_NAs <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"GDPuc.verbose"</span>, default <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  return_cfs <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convertCPI</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convertSingle</span><span class="op">(</span><span class="va">x</span>, <span class="va">iso3c</span>, year <span class="op">=</span> <span class="fl">2000</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -102,6 +107,7 @@ package to be installed. The data-frame needs to have at least 3 columns:</p><ul
 <li><p>"constant YYYY LCU"</p></li>
 <li><p>"constant YYYY Int$PPP"</p></li>
 <li><p>"constant YYYY US$MER"</p></li>
+<li><p>"constant YYYY €"</p></li>
 </ul><p>where YYYY should be replaced with a year e.g. "2010" or "2017".</p></dd>
 
 
@@ -112,6 +118,7 @@ package to be installed. The data-frame needs to have at least 3 columns:</p><ul
 <li><p>"constant YYYY LCU"</p></li>
 <li><p>"constant YYYY Int$PPP"</p></li>
 <li><p>"constant YYYY US$MER"</p></li>
+<li><p>"constant YYYY €"</p></li>
 </ul><p>where YYYY should be replaced with a year e.g. "2010" or "2017".</p></dd>
 
 
@@ -120,6 +127,12 @@ package to be installed. The data-frame needs to have at least 3 columns:</p><ul
 a data-frame that exists in the calling environment.
 Use <a href="https://pik-piam.github.io/GDPuc/reference/print_source_info.html">print_source_info()</a>
 to learn about the available sources.</p></dd>
+
+
+<dt>use_USA_deflator_for_all</dt>
+<dd><p>TRUE or FALSE (default). If TRUE, then only the USA deflator is used to adjust for
+inflation, regardless of the country codes provided. This is a very specific deviation from the correct conversion
+process, which nevertheless is often used in the integrated assessment community. Use carefully!</p></dd>
 
 
 <dt>with_regions</dt>
@@ -140,6 +153,8 @@ For the extrapolation, the closest 5 data points are used.</p></li>
 <li><p>"regional_average": missing conversion factors in the source object are replaced with
 the regional average of the region to which the country belongs. This requires a region-mapping to
 be passed to the function, see the with_regions argument.</p></li>
+<li><p>"with USA": missing conversion factors in the source object are replaced with
+the conversion factors of the USA.</p></li>
 </ul><p>Can also be a vector with "linear" as first element, e.g. c("linear", 0) or c("linear", "no_conversion"),
 in which case, the operations are done in sequence.</p></dd>
 
@@ -153,6 +168,23 @@ GDPuc.verbose option, which is FALSE if not set to TRUE by the user.</p></dd>
 <dd><p>TRUE or FALSE. Set to TRUE to additionally return a tibble with the conversion factors
 used. In that case a list is returned with the converted GDP under "result", and the conversion factors
 used under "cfs".</p></dd>
+
+
+<dt>...</dt>
+<dd><p>Arguments passed on to <code>convertGDP()</code></p></dd>
+
+
+<dt>x</dt>
+<dd><p>Number to convert</p></dd>
+
+
+<dt>iso3c</dt>
+<dd><p>Country code</p></dd>
+
+
+<dt>year</dt>
+<dd><p>Year of value. Is given the default value of 2000, since it only plays a role when converting from
+or to current currencies. This facilitates the conversion between constant currencies.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -177,11 +209,58 @@ The base year of the deflator can be any year, and can be country-specific.</p><
 wit PPP exchange rate values.</p></li>
 </ul></div>
     <div class="section level2">
+    <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a></h2>
+    
+<ul><li><p><code>convertCPI()</code>: Short cut for <code>convertGDP(..., source = "wb_wdi_cpi")</code></p></li>
+<li><p><code>convertSingle()</code>: Convert a single value, while specifying iso3c code and year. Simpler than creating a
+single row tibble.</p></li>
+</ul></div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>The <a href="https://github.com/vincentarelbundock/countrycode" class="external-link">countrycode</a>
-package to convert country codes.</p></div>
+    <div class="dont-index"><p>The <a href="https://github.com/vincentarelbundock/countrycode" class="external-link">countrycode</a> package to convert country codes.</p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="va">my_tbble</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>iso3c <span class="op">=</span> <span class="st">"FRA"</span>,</span></span>
+<span class="r-in"><span>                             year <span class="op">=</span> <span class="fl">2013</span>,</span></span>
+<span class="r-in"><span>                             value <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu">convertGDP</span><span class="op">(</span>gdp <span class="op">=</span> <span class="va">my_tbble</span>,</span></span>
+<span class="r-in"><span>             unit_in <span class="op">=</span> <span class="st">"current LCU"</span>,</span></span>
+<span class="r-in"><span>             unit_out <span class="op">=</span> <span class="st">"constant 2015 Int$PPP"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   iso3c  year value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> FRA    <span style="text-decoration: underline;">2</span>013  126.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Convert using the CPI as deflator.</span></span></span>
+<span class="r-in"><span>  <span class="fu">convertGDP</span><span class="op">(</span>gdp <span class="op">=</span> <span class="va">my_tbble</span>,</span></span>
+<span class="r-in"><span>             unit_in <span class="op">=</span> <span class="st">"current LCU"</span>,</span></span>
+<span class="r-in"><span>             unit_out <span class="op">=</span> <span class="st">"constant 2015 Int$PPP"</span>,</span></span>
+<span class="r-in"><span>             source <span class="op">=</span> <span class="st">"wb_wdi_cpi"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   iso3c  year value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> FRA    <span style="text-decoration: underline;">2</span>013  124.</span>
+<span class="r-in"><span>  <span class="co"># Or using the shortcut `convertCPI()`</span></span></span>
+<span class="r-in"><span>  <span class="fu">convertCPI</span><span class="op">(</span>gdp <span class="op">=</span> <span class="va">my_tbble</span>,</span></span>
+<span class="r-in"><span>             unit_in <span class="op">=</span> <span class="st">"current LCU"</span>,</span></span>
+<span class="r-in"><span>             unit_out <span class="op">=</span> <span class="st">"constant 2015 Int$PPP"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   iso3c  year value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> FRA    <span style="text-decoration: underline;">2</span>013  124.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Convert a single value quickly</span></span></span>
+<span class="r-in"><span>  <span class="fu">convertSingle</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">100</span>,</span></span>
+<span class="r-in"><span>                iso3c <span class="op">=</span> <span class="st">"FRA"</span>,</span></span>
+<span class="r-in"><span>                year <span class="op">=</span> <span class="fl">2013</span>,</span></span>
+<span class="r-in"><span>                unit_in <span class="op">=</span> <span class="st">"current LCU"</span>,</span></span>
+<span class="r-in"><span>                unit_out <span class="op">=</span> <span class="st">"constant 2015 Int$PPP"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 125.7852</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">GDPuc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,7 +177,7 @@ shipped source to the source argument to use it.</p>
 <span><span class="co">#&gt; <span style="font-weight: bold;">constant 2010 LCU</span> <span style="color: #00BB00;">→</span> <span style="font-weight: bold;">constant 2014 LCU</span></span></span>
 <span><span class="co">#&gt; <span style="color: #0000BB;">2014 value of base 2010 GDP deflator</span> in (constant 2014 LCU per constant 2010</span></span>
 <span><span class="co">#&gt; LCU) used:</span></span>
-<span><span class="co">#&gt; USA: 1.07831211972599</span></span>
+<span><span class="co">#&gt; USA: 1.07786</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">constant 2014 LCU</span> <span style="color: #00BB00;">→</span> <span style="font-weight: bold;">constant 2014 Int$PPP</span></span></span>
 <span><span class="co">#&gt; <span style="color: #0000BB;">2014 PPP conversion factor</span> in (LCU per international $) used:</span></span>
 <span><span class="co">#&gt; USA: 1</span></span>
@@ -195,23 +195,29 @@ on a specific, or all available sources.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/print_source_info.html">print_source_info</a></span><span class="op">(</span><span class="st">"wb_wdi"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── wb_wdi ──────────────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt; → Origin: The World Bank's World Development Indicator Database</span></span>
-<span><span class="co">#&gt; → Date: Downloaded on the 22 of Oktober 2021</span></span>
+<span><span class="co">#&gt; → Date: Downloaded on the 2nd of January 2024</span></span>
 <span><span class="co">#&gt; → Html: https://databank.worldbank.org/source/world-development-indicators</span></span>
-<span><span class="co">#&gt; → Note: Uses the standard deflator.</span></span>
+<span><span class="co">#&gt; → Note: Uses the GDP deflator.</span></span>
 <span><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span>
 <span><span class="fu"><a href="../reference/print_source_info.html">print_source_info</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Sources available:</span></span>
 <span><span class="co">#&gt; ── wb_wdi ──────────────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt; → Origin: The World Bank's World Development Indicator Database</span></span>
-<span><span class="co">#&gt; → Date: Downloaded on the 22 of Oktober 2021</span></span>
+<span><span class="co">#&gt; → Date: Downloaded on the 2nd of January 2024</span></span>
 <span><span class="co">#&gt; → Html: https://databank.worldbank.org/source/world-development-indicators</span></span>
-<span><span class="co">#&gt; → Note: Uses the standard deflator.</span></span>
+<span><span class="co">#&gt; → Note: Uses the GDP deflator.</span></span>
 <span><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt; ── wb_wdi_linked ───────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt; → Origin: The World Bank's World Development Indicator Database</span></span>
-<span><span class="co">#&gt; → Date: Downloaded on the 22 of Oktober 2021</span></span>
+<span><span class="co">#&gt; → Date: Downloaded on the 2nd of January 2024</span></span>
 <span><span class="co">#&gt; → Html: https://databank.worldbank.org/source/world-development-indicators</span></span>
-<span><span class="co">#&gt; → Note: Uses the linked deflator.</span></span>
+<span><span class="co">#&gt; → Note: Uses the linked GDP deflator.</span></span>
+<span><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; ── wb_wdi_cpi ──────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; → Origin: The World Bank's World Development Indicator Database</span></span>
+<span><span class="co">#&gt; → Date: Downloaded on the 2nd of January 2024</span></span>
+<span><span class="co">#&gt; → Html: https://databank.worldbank.org/source/world-development-indicators</span></span>
+<span><span class="co">#&gt; → Note: Uses the CPI as deflator.</span></span>
 <span><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 <p>Use the <code>:::</code> operator to take a closer look at sources
 shipped with GDPuc.</p>

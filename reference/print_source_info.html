@@ -16,7 +16,7 @@ available sources."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aj
     
     <a class="navbar-brand me-2" href="../index.html">GDPuc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,8 +77,9 @@ available sources.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>source</dt>
-<dd><p>The name of one of the internal sources:</p><ol><li><p>"wb_wdi"</p></li>
+<dd><p>Empty, or the name of one of the internal sources:</p><ol><li><p>"wb_wdi"</p></li>
 <li><p>"wb_wdi_linked"</p></li>
+<li><p>"wb_wdi_cpi"</p></li>
 </ol></dd>
 
 </dl></div>
@@ -89,6 +90,31 @@ available sources.</p>
 <p>No return value, called for side effects.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">print_source_info</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Sources available:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── wb_wdi ──────────────────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Origin: The World Bank's World Development Indicator Database</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Date: Downloaded on the 2nd of January 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Html: https://databank.worldbank.org/source/world-development-indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Note: Uses the GDP deflator.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────────────────────────────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── wb_wdi_linked ───────────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Origin: The World Bank's World Development Indicator Database</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Date: Downloaded on the 2nd of January 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Html: https://databank.worldbank.org/source/world-development-indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Note: Uses the linked GDP deflator.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────────────────────────────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── wb_wdi_cpi ──────────────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Origin: The World Bank's World Development Indicator Database</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Date: Downloaded on the 2nd of January 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Html: https://databank.worldbank.org/source/world-development-indicators</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> → Note: Uses the CPI as deflator.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ────────────────────────────────────────────────────────────────────────────────</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

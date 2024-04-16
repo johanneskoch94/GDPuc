@@ -27,7 +27,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">GDPuc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,22 +117,21 @@ result.</p>
 <span>  unit_out <span class="op">=</span> <span class="st">"constant 2019 Int$PPP"</span>,</span>
 <span>  return_cfs <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: NAs have been generated for countries lacking conversion factors!</span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">result</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010    <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011    <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012    <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013    <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                     <span style="color: #BB0000;">NA</span>                     <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
@@ -172,17 +171,17 @@ warnings”</a>).</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010     0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011     0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012     0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013     0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014     0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                     <span style="color: #BB0000;">NA</span>                     <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
@@ -212,17 +211,17 @@ gdp argument.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010   100</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011   101</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012   102</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013   103</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014   104</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                     <span style="color: #BB0000;">NA</span>                     <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
@@ -253,17 +252,17 @@ are used.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  116.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  117.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  118.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  120.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                   1.30                   1.37</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
@@ -301,17 +300,17 @@ misleading results, use with care!</strong></p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  3.75</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  3.79</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  3.83</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  3.86</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  3.90</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                   6.44                   210.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
@@ -354,19 +353,18 @@ missing conversion factors still lead to NAs, these are replaced with
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  116.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> XXX    <span style="text-decoration: underline;">2</span>010    0</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                   1.30                   1.37</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> XXX                        <span style="color: #BB0000;">NA</span>                     <span style="color: #BB0000;">NA</span>                     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39ms in (LCU per international $)`,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39ms in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ³​`\033[34m2019 PPP conversion factor\033[39ms in (LCU per international $)`</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ³​`\033[34m2019 PPP conversion factor\033[39m in (LCU per international $)`</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="deprecated-replace_nas-1">Deprecated: <code>replace_NAs</code> = 1<a class="anchor" aria-label="anchor" href="#deprecated-replace_nas-1"></a>
@@ -397,17 +395,17 @@ missing conversion factors still lead to NAs, these are replaced with
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 3</span></span></span>
 <span><span class="co">#&gt;   iso3c  year value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  103.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  104.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  105.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  106.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  107.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW    <span style="text-decoration: underline;">2</span>010  118.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> ABW    <span style="text-decoration: underline;">2</span>011  119.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> ABW    <span style="text-decoration: underline;">2</span>012  120.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> ABW    <span style="text-decoration: underline;">2</span>013  121.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> ABW    <span style="text-decoration: underline;">2</span>014  123.</span></span>
 <span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">cfs</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.22                  0.840                      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ABW                         1.23                   1.36                   1.42</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated names:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,</span></span></span>
