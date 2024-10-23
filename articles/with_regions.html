@@ -112,6 +112,7 @@ within the region).</p>
 <span>  with_regions <span class="op">=</span> <span class="va">my_mapping_data_frame</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Dissaggreagting regions using GDP in constant 2005 Int$PPP as weights.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Converting GDP with conversion factors from <span style="color: #0000BB;">wb_wdi</span>:</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">constant 2005 Int$PPP</span> <span style="color: #00BB00;">→</span> <span style="font-weight: bold;">constant 2005 LCU</span></span></span>
 <span><span class="co">#&gt; <span style="color: #0000BB;">2005 PPP conversion factor</span>s in (LCU per international $) used:</span></span>
@@ -149,6 +150,22 @@ regionmapping<a class="anchor" aria-label="anchor" href="#with_regions-a-string-
 <p>If passed a string, then a corresponding regionmapping will be loaded
 with <code><a href="https://rdrr.io/pkg/madrat/man/toolGetMapping.html" class="external-link">madrat::toolGetMapping</a></code>. Requires madrat to be
 installed, and the regionmapping to exist.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_gdp</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  iso3c <span class="op">=</span> <span class="st">"EUR"</span>, </span>
+<span>  value <span class="op">=</span> <span class="fl">100</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/convertGDP.html">convertGDP</a></span><span class="op">(</span></span>
+<span>  gdp <span class="op">=</span> <span class="va">my_gdp</span>, </span>
+<span>  unit_in <span class="op">=</span> <span class="st">"constant 2005 Int$PPP"</span>, </span>
+<span>  unit_out <span class="op">=</span> <span class="st">"constant 2017 Int$PPP"</span>,</span>
+<span>  with_regions <span class="op">=</span> <span class="st">"regionmappingH12.csv"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
+<span><span class="co">#&gt;   iso3c value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> EUR    138.</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
