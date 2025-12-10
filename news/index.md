@@ -2,6 +2,8 @@
 
 ## GDPuc 1.6.0
 
+CRAN release: 2025-11-19
+
 - Fixes [\#30](https://github.com/pik-piam/GDPuc/issues/30),
   [\#32](https://github.com/pik-piam/GDPuc/issues/32),
   [\#36](https://github.com/pik-piam/GDPuc/issues/36)
