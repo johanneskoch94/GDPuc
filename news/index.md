@@ -1,5 +1,9 @@
 # Changelog
 
+## GDPuc 1.6.1
+
+- Fix bug in selection of iso3c column
+
 ## GDPuc 1.6.0
 
 CRAN release: 2025-11-19
