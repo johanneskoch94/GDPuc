@@ -13,5 +13,4 @@ var_IntPPP <- paste("GDP, PPP (constant", year_IntPPP, "international $)")
 # In January 2024 only "PAN" was causing problems.
 # In April 2024 "PAN", "SWE", "NOR", "JPN", "CZE", "FIN" and "CAN" were causing problems.
 # In July 2026 "IND" causes problems.
-bad_countries <- c("PAN", "SWE", "NOR", "JPN", "CZE", "FIN", "CAN")
 bad_countries <- c("IND")
