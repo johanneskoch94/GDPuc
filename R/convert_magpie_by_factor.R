@@ -26,17 +26,10 @@ use_factors_for_magpie <- function(gdp, with_regions, return_cfs) {
 #
 # Every elemental conversion step multiplies or divides the value column by a factor that depends only
 # on the country and the year, so the conversion is linear in the data. The generic code path however
-# melts the object into a long data frame holding one row per value before converting it. For a magpie
-# object with a second spatial sub-dimension or several data dimensions -- a bilateral trade matrix has
-# one row per reporter x partner x year x item -- that data frame is orders of magnitude larger than the
-# object itself, and building it, joining the conversion factors onto it row by row and casting the
-# result back dominate both runtime and memory.
+# melts the object into a long data frame which unnecessarily blows up magpie objects.
 #
 # So instead the conversion is run on an object holding a single 1 per country and year, which yields
-# the conversion factors, and the data is scaled with those. Recursing into convertGDP() rather than
-# reaching into the conversion functions directly means the argument checking, source adaptation,
-# verbosity and NA handling all stay in one place, and the factors are by construction the same ones the
-# generic path would have computed.
+# the conversion factors.
 #
 # One deliberate difference: without replace_NAs, the warning about countries lacking conversion factors
 # is raised for every such country, whereas the generic path only raises it if that country also has
@@ -67,8 +60,7 @@ convert_magpie_by_factor <- function(gdp,
                    iso3c_column = iso3c_column,
                    year_column = year_column)
 
-  # Line the factors up with the spatial dimension of gdp by country code, so that the multiplication
-  # below matches positionally and does not depend on how the sets of gdp happen to be named. The
+  # Line the factors up with the spatial dimension of gdp by country code. The
   # expanded factors stay one value wide in the data dimension.
   cf <- cf[match(magclass::getItems(gdp, dim = 1.1, full = TRUE), magclass::getItems(cf, dim = 1)), , ]
   magclass::getItems(cf, dim = 1, raw = TRUE) <- magclass::getItems(gdp, dim = 1)
@@ -77,9 +69,6 @@ convert_magpie_by_factor <- function(gdp,
   x <- gdp * cf
 
   # The generic path replaces every NA of the result, including those that were already NA in gdp.
-  # Guarding this with anyNA() to skip the copy when there is nothing to replace does not pay off:
-  # magclass defines no anyNA() method, so anyNA() coerces the object to a vector and costs a full
-  # copy of its own -- exactly what the guard was meant to save.
   if (!is.null(replace_NAs) && 0 %in% replace_NAs) x[is.na(x)] <- 0
 
   magclass::getSets(x) <- magclass::getSets(gdp)
