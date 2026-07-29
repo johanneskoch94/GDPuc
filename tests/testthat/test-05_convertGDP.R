@@ -92,6 +92,13 @@ test_that("convertGDP magpie object", {
   expect_mapequal(magclass::getSets(gdp_in),  magclass::getSets(gdp_conv))
   expect_mapequal(magclass::getSets(gdp_in2), magclass::getSets(gdp_conv2))
   expect_mapequal(magclass::getSets(gdp_in3), magclass::getSets(gdp_conv3))
+
+  # All three hold more than one value per country and year, so they are converted through their
+  # conversion factors. Check the values too, not just the shape: melting the same object into long
+  # form takes the generic code path and has to give the same numbers. See helper-magpie.R.
+  expect_matches_long_form(gdp_in, "current LCU", "constant 2017 Int$PPP")
+  expect_matches_long_form(gdp_in2, "current LCU", "constant 2017 Int$PPP")
+  expect_matches_long_form(gdp_in3, "constant 2005 LCU", "constant 2017 Int$PPP")
 })
 
 

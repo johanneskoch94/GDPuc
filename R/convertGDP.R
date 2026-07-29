@@ -124,7 +124,7 @@ convertGDP <- function(gdp,
   # The following line needs to be updated every time the output of convertGDP is affected by an update!
   # This is a trick, so that madrat caching works correctly. For more information, see the documentation of the madrat
   # R-package.
-  "last changes 2025-11-19"
+  "last changes 2026-07-29"
 
   # Save all function arguments as list
   arg <- as.list(environment())
@@ -139,6 +139,13 @@ convertGDP <- function(gdp,
   if (identical(unit_in, unit_out)) {
     cli_inform(function() cli::cli_alert_info("No conversion: unit_in = unit_out."))
     return(gdp)
+  }
+
+  # Convert magpie objects that hold more than one value per country and year through their conversion
+  # factors, rather than by melting them into a long data frame. See convert_magpie_by_factor().
+  if (use_factors_for_magpie(gdp, with_regions, return_cfs)) {
+    return(convert_magpie_by_factor(gdp, unit_in, unit_out, source, use_USA_cf_for_all, replace_NAs,
+                                    verbose, iso3c_column, year_column))
   }
 
   # Transform user input for internal use, while performing some last consistency checks
