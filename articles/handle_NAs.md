@@ -15,6 +15,7 @@ Below, the `return_cfs` argument is set to `TRUE` to inspect the
 conversion factors, along side the result.
 
 ``` r
+
 library(GDPuc)
 
 # Test with Venezuela -> iso3c = VEN
@@ -45,7 +46,7 @@ x$cfs
 #> # A tibble: 1 × 4
 #>   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³
 #>   <chr>                      <dbl>                  <dbl>                  <dbl>
-#> 1 VEN                        0.842                     NA                     NA
+#> 1 VEN                     8.42e-12              674509000                     NA
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,
 #> #   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,
@@ -55,6 +56,7 @@ x$cfs
 To eliminate the warning:
 
 ``` r
+
 x <- convertGDP(
   gdp = my_gdp, 
   unit_in = "constant 2005 Int$PPP", 
@@ -72,6 +74,7 @@ warnings”](https://pik-piam.github.io/GDPuc/articles/warn.html)).
 If set to 0, resulting NAs are set to 0.
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = "VEN",
   year = 2010:2014,
@@ -99,7 +102,7 @@ x$cfs
 #> # A tibble: 1 × 4
 #>   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³
 #>   <chr>                      <dbl>                  <dbl>                  <dbl>
-#> 1 VEN                        0.842                     NA                     NA
+#> 1 VEN                     8.42e-12              674509000                     NA
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,
 #> #   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,
@@ -112,6 +115,7 @@ If set to “no_conversion”, NAs are replaced with the values in the gdp
 argument.
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = "VEN",
   year = 2010:2014,
@@ -139,7 +143,7 @@ x$cfs
 #> # A tibble: 1 × 4
 #>   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³
 #>   <chr>                      <dbl>                  <dbl>                  <dbl>
-#> 1 VEN                        0.842                     NA                     NA
+#> 1 VEN                     8.42e-12              674509000                     NA
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,
 #> #   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,
@@ -153,6 +157,7 @@ extrapolated linearly. For the extrapolation, the closest 5 data points
 are used.
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = "VEN",
   year = 2010:2014,
@@ -168,19 +173,19 @@ x <- convertGDP(
 )
 x$result
 #> # A tibble: 5 × 3
-#>   iso3c  year value
-#>   <chr> <int> <dbl>
-#> 1 VEN    2010  203.
-#> 2 VEN    2011  205.
-#> 3 VEN    2012  208.
-#> 4 VEN    2013  210.
-#> 5 VEN    2014  212.
+#>   iso3c  year       value
+#>   <chr> <int>       <dbl>
+#> 1 VEN    2010 9504588652.
+#> 2 VEN    2011 9599634538.
+#> 3 VEN    2012 9694680425.
+#> 4 VEN    2013 9789726311.
+#> 5 VEN    2014 9884772198.
 
 x$cfs
 #> # A tibble: 1 × 4
 #>   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³
 #>   <chr>                      <dbl>                  <dbl>                  <dbl>
-#> 1 VEN                        0.842                   14.4                   5.97
+#> 1 VEN                     8.42e-12              674509000               5.97e-11
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2005 PPP conversion factor\033[39m in (LCU per international $)`,
 #> #   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,
@@ -195,6 +200,7 @@ GDP data at PPP, to be used as weight. **May lead to misleading results,
 use with care!**
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = "VEN",
   year = 2010:2014,
@@ -216,19 +222,19 @@ x <- convertGDP(
 )
 x$result
 #> # A tibble: 5 × 3
-#>   iso3c  year value
-#>   <chr> <int> <dbl>
-#> 1 VEN    2010 0.485
-#> 2 VEN    2011 0.489
-#> 3 VEN    2012 0.494
-#> 4 VEN    2013 0.499
-#> 5 VEN    2014 0.504
+#>   iso3c  year   value
+#>   <chr> <int>   <dbl>
+#> 1 VEN    2010 0.00282
+#> 2 VEN    2011 0.00285
+#> 3 VEN    2012 0.00287
+#> 4 VEN    2013 0.00290
+#> 5 VEN    2014 0.00293
 
 x$cfs
 #> # A tibble: 1 × 3
 #>   iso3c \033[34m2019 value of base 2005 GDP deflator\03…¹ \033[34m2019 PPP con…²
 #>   <chr>                                             <dbl>                  <dbl>
-#> 1 VEN                                                1.18                   205.
+#> 1 VEN                                           674509000                   201.
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2019 value of base 2005 GDP deflator\033[39m in (constant 2019 LCU per constant 2005 LCU)`,
 #> #   ²​`\033[34m2019 PPP conversion factor\033[39m in (LCU per international $)`
@@ -245,6 +251,7 @@ conversion factors are first inter- and extrapolated linearly but if any
 missing conversion factors still lead to NAs, these are replaced with 0.
 
 ``` r
+
 # Create an imaginary country XXX, and add it to the Latin America region
 my_gdp <- tibble::tibble(
   iso3c = c("VEN", "XXX"),
@@ -267,17 +274,17 @@ x <- convertGDP(
 )
 x$result
 #> # A tibble: 2 × 3
-#>   iso3c  year value
-#>   <chr> <dbl> <dbl>
-#> 1 VEN    2010  203.
-#> 2 XXX    2010    0
+#>   iso3c  year       value
+#>   <chr> <dbl>       <dbl>
+#> 1 VEN    2010 9504588652.
+#> 2 XXX    2010          0
 
 x$cfs
 #> # A tibble: 2 × 3
 #>   iso3c \033[34m2019 value of base 2005 GDP deflator\03…¹ \033[34m2019 PPP con…²
 #>   <chr>                                             <dbl>                  <dbl>
-#> 1 VEN                                                14.4                   5.97
-#> 2 XXX                                                NA                    NA   
+#> 1 VEN                                           674509000               5.97e-11
+#> 2 XXX                                                  NA              NA       
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2019 value of base 2005 GDP deflator\033[39ms in (constant 2019 LCU per constant 2005 LCU)`,
 #> #   ²​`\033[34m2019 PPP conversion factor\033[39ms in (LCU per international $)`
@@ -291,6 +298,7 @@ is no data for any years at all) the data for these countries is
 converted using the conversion factors of the USA.
 
 ``` r
+
 # Venezuela is only missing conversion factors in 2019, AIA has no conversion factors at all.
 my_gdp <- tibble::tibble(
   iso3c = c("VEN", "AIA", "USA"),
@@ -306,19 +314,19 @@ x <- convertGDP(
 )
 x$result
 #> # A tibble: 3 × 2
-#>   iso3c value
-#>   <chr> <dbl>
-#> 1 VEN    264.
-#> 2 AIA    128.
-#> 3 USA    128.
+#>   iso3c        value
+#>   <chr>        <dbl>
+#> 1 VEN   21176112583.
+#> 2 AIA           127.
+#> 3 USA           127.
 
 x$cfs
 #> # A tibble: 3 × 4
 #>   iso3c \033[34m2005 PPP convers…¹ \033[34m2019 value o…² \033[34m2019 PPP con…³
 #>   <chr>                      <dbl>                  <dbl>                  <dbl>
-#> 1 USA                        1                       1.28                   1   
-#> 2 VEN                        0.842                   8.40                   2.68
-#> 3 AIA                        1                       1.28                   1   
+#> 1 USA                     1   e+ 0                   1.27               1   e+ 0
+#> 2 VEN                     8.42e-12           674509000                  2.68e-11
+#> 3 AIA                     1   e+ 0                   1.27               1   e+ 0
 #> # ℹ abbreviated names:
 #> #   ¹​`\033[34m2005 PPP conversion factor\033[39ms in (LCU per international $)`,
 #> #   ²​`\033[34m2019 value of base 2005 GDP deflator\033[39ms in (constant 2019 LCU per constant 2005 LCU)`,

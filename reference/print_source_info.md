@@ -34,19 +34,19 @@ print_source_info()
 #> ℹ Sources available:
 #> ── wb_wdi ──────────────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the GDP deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
 #> ── wb_wdi_linked ───────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the linked GDP deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
 #> ── wb_wdi_cpi ──────────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the CPI as deflator.
 #> ────────────────────────────────────────────────────────────────────────────────

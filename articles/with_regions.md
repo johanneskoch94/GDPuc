@@ -18,6 +18,7 @@ the source object needs to have GDP data for the countries within the
 region).
 
 ``` r
+
 library(GDPuc)
 
 my_gdp <- tibble::tibble(
@@ -49,10 +50,10 @@ convertGDP(
 #> constant 2005 LCU → constant 2017 LCU
 #> 2017 value of base 2005 GDP deflators in (constant 2017 LCU per constant 2005
 #> LCU) used:
-#> DEU: 1.17967
-#> ESP: 1.1273
-#> FRA: 1.14739
-#> ITA: 1.18511
+#> DEU: 1.18298
+#> ESP: 1.13288
+#> FRA: 1.14186
+#> ITA: 1.19131
 #> constant 2017 LCU → constant 2017 Int$PPP
 #> 2017 PPP conversion factors in (LCU per international $) used:
 #> DEU: 0.744783
@@ -64,9 +65,9 @@ convertGDP(
 #>   <chr> <int> <dbl>
 #> 1 EUR    2010  140.
 #> 2 EUR    2011  141.
-#> 3 EUR    2012  142.
+#> 3 EUR    2012  143.
 #> 4 EUR    2013  144.
-#> 5 EUR    2014  145.
+#> 5 EUR    2014  146.
 ```
 
 ### `with_regions =` a string with a madrat regionmapping
@@ -77,6 +78,7 @@ with
 Requires madrat to be installed, and the regionmapping to exist.
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = "EUR", 
   value = 100
@@ -91,5 +93,5 @@ convertGDP(
 #> # A tibble: 1 × 2
 #>   iso3c value
 #>   <chr> <dbl>
-#> 1 EUR    138.
+#> 1 EUR    139.
 ```

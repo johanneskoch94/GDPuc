@@ -6,6 +6,7 @@ Set the `verbose` argument in `convertGDP` to `TRUE` to print out the
 underlying conversion steps and factors.
 
 ``` r
+
 library(GDPuc)
 
 my_gdp <- tibble::tibble(
@@ -24,7 +25,7 @@ convertGDP(
 #> constant 2005 LCU → constant 2017 LCU
 #> 2017 value of base 2005 GDP deflator in (constant 2017 LCU per constant 2005
 #> LCU) used:
-#> USA: 1.23136
+#> USA: 1.22615
 #> constant 2017 LCU → constant 2017 Int$PPP
 #> 2017 PPP conversion factor in (LCU per international $) used:
 #> USA: 1
@@ -33,14 +34,15 @@ convertGDP(
 #>   <chr> <int> <dbl>
 #> 1 USA    2010  123.
 #> 2 USA    2011  124.
-#> 3 USA    2012  126.
-#> 4 USA    2013  127.
+#> 3 USA    2012  125.
+#> 4 USA    2013  126.
 #> 5 USA    2014  128.
 ```
 
 The verbosity can also be controlled via the option `GDPuc.verbose`.
 
 ``` r
+
 options(GDPuc.verbose = TRUE)
 
 convertGDP(
@@ -52,7 +54,7 @@ convertGDP(
 #> constant 2005 LCU → constant 2017 LCU
 #> 2017 value of base 2005 GDP deflator in (constant 2017 LCU per constant 2005
 #> LCU) used:
-#> USA: 1.23136
+#> USA: 1.22615
 #> constant 2017 LCU → constant 2017 Int$PPP
 #> 2017 PPP conversion factor in (LCU per international $) used:
 #> USA: 1
@@ -61,8 +63,8 @@ convertGDP(
 #>   <chr> <int> <dbl>
 #> 1 USA    2010  123.
 #> 2 USA    2011  124.
-#> 3 USA    2012  126.
-#> 4 USA    2013  127.
+#> 3 USA    2012  125.
+#> 4 USA    2013  126.
 #> 5 USA    2014  128.
 
 options(GDPuc.verbose = FALSE)
@@ -74,6 +76,7 @@ Set the `return_cfs` argument in `convertGDP` to `TRUE` to return a list
 of length 2, with the result and a the conversion factors used.
 
 ``` r
+
 convertGDP(
   gdp = my_gdp,
   unit_in = "constant 2005 LCU",
@@ -86,8 +89,8 @@ convertGDP(
 #>   <chr> <int> <dbl>
 #> 1 USA    2010  123.
 #> 2 USA    2011  124.
-#> 3 USA    2012  126.
-#> 4 USA    2013  127.
+#> 3 USA    2012  125.
+#> 4 USA    2013  126.
 #> 5 USA    2014  128.
 #> 
 #> $cfs

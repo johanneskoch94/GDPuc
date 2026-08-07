@@ -12,6 +12,7 @@ update planned for April 2026.
 ## Installation
 
 ``` r
+
 # Install from CRAN
 install.packages("GDPuc")
 
@@ -24,12 +25,14 @@ remotes::install_github("pik-piam/GDPuc")
 Load the package.
 
 ``` r
+
 library(GDPuc)
 ```
 
 The main function of the package is `convertGDP`.
 
 ``` r
+
 convertGDP(
   gdp = my_gdp,
   unit_in = "constant 2005 LCU",
@@ -50,16 +53,22 @@ GDP units. All common GDP units are supported, i.e.:
 - current LCU
 - current US\$MER
 - current Int\$PPP
-- constant YYYY LCU
-- constant YYYY US\$MER
-- constant YYYY Int\$PPP
+- current xxx_CU
+- constant yyyy LCU
+- constant yyyy US\$MER
+- constant yyyy Int\$PPP
+- constant yyyy € or constant yyyy EUR
+- constant yyyy xxx_CU
 
-Here “YYYY” is a placeholder for a year, e.g. “2010” or “2015”, and
-“LCU” stands for Local Currency Unit.
+Here “LCU” stands for Local Currency Unit, “YYYY” is a placeholder for a
+year, e.g. “2010” or “2015”, and xxx is a placeholder for a valid iso3c
+country code with for instance “JPN_CU” designating the currency unit of
+Japan.
 
 For a quick conversion of a single value use `convertSingle`.
 
 ``` r
+
 convertSingle(
   x = 100,
   iso3c = "FRA",
@@ -72,6 +81,7 @@ convertSingle(
 ## Example
 
 ``` r
+
 library(GDPuc)
 
 my_gdp <- tibble::tibble(

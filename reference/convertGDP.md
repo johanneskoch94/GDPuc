@@ -48,45 +48,23 @@ toolConvertCPI(...)
 
 - gdp:
 
-  A tibble, data frame or magpie object, the latter of which requires
-  the [magclass](https://github.com/pik-piam/magclass) package to be
-  installed. The data-frame needs to have at least 2 columns, in some
-  cases 3:
+  A tibble, data frame or magpie (see
+  [magclass](https://github.com/pik-piam/magclass)) object. The
+  data-frame needs to have at least 2 columns, in some cases 3:
 
   - a character column with iso3c
     ([wikipedia](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3))
     country codes,
 
   - a numeric column with years (only required when converting from or
-    to current currencies),
+    to "current" currencies),
 
   - a numeric column named "value" with GDP values.
 
-- unit_in:
+- unit_in, unit_out:
 
-  A string with the incoming GDP unit, one of:
-
-  - "current LCU"
-
-  - "current Int\$PPP"
-
-  - "current US\$MER"
-
-  - "constant YYYY LCU"
-
-  - "constant YYYY Int\$PPP"
-
-  - "constant YYYY US\$MER"
-
-  - "constant YYYY €" or "constant YYYY EUR"
-
-  - "constant YYYY xxx_CU"
-
-  where YYYY should be replaced with a year e.g. "2010" or "2017".
-
-- unit_out:
-
-  A string with the outgoing GDP unit, one of:
+  A string with the units to convert from and to. The following units
+  are available:
 
   - "current LCU"
 
@@ -94,19 +72,22 @@ toolConvertCPI(...)
 
   - "current US\$MER"
 
-  - "constant YYYY LCU"
+  - "current xxx_CU"
 
-  - "constant YYYY Int\$PPP"
+  - "constant yyyy LCU"
 
-  - "constant YYYY US\$MER"
+  - "constant yyyy Int\$PPP"
 
-  - "constant YYYY €" or "constant YYYY EUR"
+  - "constant yyyy US\$MER"
 
-  - "constant YYYY xxx_CU"
+  - "constant yyyy €" or "constant yyyy EUR"
 
-  where YYYY should be replaced with a year e.g. "2010" or "2017", and
-  xxx with a valid iso3c country code, e.g. "JPN_CU" to pick the
-  currency unit of Japan.
+  - "constant yyyy xxx_CU"
+
+  Here "LCU" stands for Local Currency Unit, "yyyy" is a placeholder for
+  a year, e.g. "2010" or "2015", and xxx is a placeholder for a valid
+  iso3c country code with for instance "JPN_CU" designating the currency
+  unit of Japan
 
 - source:
 
@@ -220,7 +201,20 @@ unit_out. If the argument return_cfs is TRUE, then a list is returned
 with the converted GDP under "result", and the conversion factors used
 under "cfs".
 
-## Details
+## Functions
+
+- `convertCPI()`: Short cut for `convertGDP(..., source = "wb_wdi_cpi")`
+
+- `convertSingle()`: Convert a single value, while specifying iso3c code
+  and year. Simpler than creating a single row tibble.
+
+- `toolConvertGDP()`: Madrat wrapper around `convertGDP()`
+
+- `toolConvertSingle()`: Madrat wrapper around `convertSingle()`
+
+- `toolConvertCPI()`: Madrat wrapper around `convertCPI(...)`
+
+## Using a custom source
 
 When providing a custom source to the function, a certain format is
 required. The source object must be a data frame or tibble with at least
@@ -240,20 +234,7 @@ the following columns:
 - a numeric column named "MER (LCU per US\$)" with MER values,
 
 - a numeric column named "PPP conversion factor, GDP (LCU per
-  international \$)" wit PPP exchange rate values.
-
-## Functions
-
-- `convertCPI()`: Short cut for `convertGDP(..., source = "wb_wdi_cpi")`
-
-- `convertSingle()`: Convert a single value, while specifying iso3c code
-  and year. Simpler than creating a single row tibble.
-
-- `toolConvertGDP()`: Madrat wrapper around `convertGDP()`
-
-- `toolConvertSingle()`: Madrat wrapper around `convertSingle()`
-
-- `toolConvertCPI()`: Madrat wrapper around `convertCPI(...)`
+  international \$)" with PPP exchange rate values.
 
 ## See also
 
@@ -299,5 +280,5 @@ package to convert country codes.
                 year = 2013,
                 unit_in = "current LCU",
                 unit_out = "constant 2015 Int$PPP")
-#> [1] 125.7852
+#> [1] 125.7728
 ```

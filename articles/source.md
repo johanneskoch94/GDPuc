@@ -13,6 +13,7 @@ There are two `source` options shipped with the package, `wb_wdi` and
 a shipped source to the source argument to use it.
 
 ``` r
+
 library(GDPuc)
 
 my_gdp <- tibble::tibble(
@@ -32,7 +33,7 @@ convertGDP(
 #> constant 2010 LCU → constant 2014 LCU
 #> 2014 value of base 2010 GDP deflator in (constant 2014 LCU per constant 2010
 #> LCU) used:
-#> USA: 1.07786
+#> USA: 1.07574
 #> constant 2014 LCU → constant 2014 Int$PPP
 #> 2014 PPP conversion factor in (LCU per international $) used:
 #> USA: 1
@@ -50,10 +51,11 @@ Use the function `print_source_info` to print information on a specific,
 or all available sources.
 
 ``` r
+
 print_source_info("wb_wdi")
 #> ── wb_wdi ──────────────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the GDP deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
@@ -61,19 +63,19 @@ print_source_info()
 #> ℹ Sources available:
 #> ── wb_wdi ──────────────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the GDP deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
 #> ── wb_wdi_linked ───────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the linked GDP deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
 #> ── wb_wdi_cpi ──────────────────────────────────────────────────────────────────
 #> → Origin: The World Bank's World Development Indicator Database
-#> → Date: Downloaded on the 30th of April 2024
+#> → Date: Downloaded on the 15th of July 2026
 #> → Html: https://databank.worldbank.org/source/world-development-indicators
 #> → Note: Uses the CPI as deflator.
 #> ────────────────────────────────────────────────────────────────────────────────
@@ -83,6 +85,7 @@ Use the `:::` operator to take a closer look at sources shipped with
 GDPuc.
 
 ``` r
+
 GDPuc:::wb_wdi
 ```
 
@@ -99,6 +102,7 @@ Any tibble with columns:
 can be used as a source of conversion factors.
 
 ``` r
+
 my_custom_source <- tibble::tibble(
   iso3c = "USA", 
   year = 2010:2014, 
@@ -151,6 +155,7 @@ modelling efforts, in US\$MER, to another base year. Setting the
 with the US conversion factors.
 
 ``` r
+
 my_gdp <- tibble::tibble(
   iso3c = c("USA", "IND"), 
   value = 100
@@ -166,13 +171,13 @@ convertGDP(
 #> ℹ Converting GDP with conversion factors from wb_wdi:
 #> constant 2005 US$MER → constant 2005 LCU
 #> 2005 MERs in (LCU per US$) used:
-#> IND: 44.2736
+#> IND: 44.2735
 #> USA: 1
 #> constant 2005 LCU → constant 2020 LCU
 #> 2020 value of base 2005 GDP deflators in (constant 2020 LCU per constant 2005
 #> LCU) used:
-#> IND: 2.35925
-#> USA: 1.30033
+#> IND: 2.36079
+#> USA: 1.29208
 #> constant 2020 LCU → constant 2020 US$MER
 #> 2020 MERs in (LCU per US$) used:
 #> IND: 74.225
@@ -180,7 +185,7 @@ convertGDP(
 #> # A tibble: 2 × 2
 #>   iso3c value
 #>   <chr> <dbl>
-#> 1 USA    130.
+#> 1 USA    129.
 #> 2 IND    141.
 
 # Using the US conversion factors for both countries
@@ -199,8 +204,8 @@ convertGDP(
 #> constant 2005 LCU → constant 2020 LCU
 #> 2020 value of base 2005 GDP deflators in (constant 2020 LCU per constant 2005
 #> LCU) used:
-#> IND: 1.30033
-#> USA: 1.30033
+#> IND: 1.29208
+#> USA: 1.29208
 #> constant 2020 LCU → constant 2020 US$MER
 #> 2020 MERs in (LCU per US$) used:
 #> IND: 1
@@ -208,6 +213,6 @@ convertGDP(
 #> # A tibble: 2 × 2
 #>   iso3c value
 #>   <chr> <dbl>
-#> 1 USA    130.
-#> 2 IND    130.
+#> 1 USA    129.
+#> 2 IND    129.
 ```

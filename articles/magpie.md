@@ -5,6 +5,7 @@
 argument.
 
 ``` r
+
 library(GDPuc)
 if (rlang::is_installed("magclass")) {
   my_gdp <- magclass::new.magpie(
@@ -27,8 +28,8 @@ if (rlang::is_installed("magclass")) {
 #> 
 #>      year
 #> iso3c    y2010    y2011    y2012    y2013    y2014
-#>   USA 123.1357 125.5984 128.0611 130.5238 132.9865
-#>   FRA 150.4810 153.4608 156.4406 159.4204 162.4002
+#>   USA 122.6146 125.0669 127.5192 129.9715 132.4237
+#>   FRA 149.7553 152.7208 155.6862 158.6517 161.6171
 ```
 
 `convertGDP` does not change or add the “unit” attribute of the magpie
