@@ -141,6 +141,13 @@ convertGDP <- function(gdp,
     return(gdp)
   }
 
+  # Convert magpie objects that hold more than one value per country and year through their conversion
+  # factors, rather than by melting them into a long data frame. See convert_magpie_by_factor().
+  if (use_factors_for_magpie(gdp, with_regions, return_cfs)) {
+    return(convert_magpie_by_factor(gdp, unit_in, unit_out, source, use_USA_cf_for_all, replace_NAs,
+                                    verbose, iso3c_column, year_column))
+  }
+
   # Transform user input for internal use, while performing some last consistency checks
   internal <- transform_user_input(gdp,
                                    unit_in,

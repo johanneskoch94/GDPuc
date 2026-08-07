@@ -21,5 +21,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Johannes Koch \email{jokoch@pik-potsdam.de}
 
+Authors:
+\itemize{
+  \item Johannes Koch \email{jokoch@pik-potsdam.de}
+}
+
 }
 \keyword{internal}
